@@ -607,6 +607,12 @@ sqlDistZip.dependsOn ':azkaban-sql:concat'
 distTar.dependsOn migrationDistTar, webserverDistTar, execserverDistTar, soloserverDistTar, sqlDistTar
 distZip.dependsOn migrationDistZip, webserverDistZip, execserverDistZip, soloserverDistZip, sqlDistZip
 
+subprojects { p ->
+  p.tasks.withType(JavaCompile) {
+    sourceCompatibility = '1.7'
+    targetCompatibility = '1.7'
+  }
+}
 /**
  * Gradle wrapper task.
  */
